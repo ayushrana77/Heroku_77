@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,send_from_director
 from flask_cors import CORS,cross_origin
 
 app = Flask(__name__,static_folder='my-app/build',static_url_path='')
@@ -9,7 +9,7 @@ def index():
     return {
         "tutorial": "Flask React Heroku"
     }
-    
+
 @app.route('/')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
